@@ -1,0 +1,56 @@
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+  }
+.view-image-container{
+    width:100%;
+    height: 100vh;
+    background:black;
+    position: fixed;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    top: 60px;
+
+}
+
+.view-image-container img{
+    width: 50%;
+    max-width: 90%;
+    max-height:90% ;
+    /* margin-top: 60px; */
+
+}
+.xmark{
+    position:absolute;
+    top:10px;
+    right:10px;
+    color: red !important;;
+
+}
+
+.view-image-container button{
+    background: none;
+    color:yellow;
+    width: 35px;
+  
+}
+
+.gallery-container{
+    width: 100%;
+    padding: 10px 10%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:10px;
+
+}
+
+.inner-image-style{
+    width:30% !important;
+  
+   
+}

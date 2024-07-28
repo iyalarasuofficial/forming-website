@@ -1,0 +1,100 @@
+.logo{
+  margin-top: 23%;
+}
+
+.input{
+  margin-top: 19px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.login{
+  background: linear-gradient(to left, #ee7724, #d8363a, #dd3675, #b44593);
+
+}
+.text-background{
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  border-radius: 0 10px 10px 0; 
+}
+.head-sec{
+     background-color: #eee; 
+     
+}
+@media(max-width:768px){
+  .text-background{
+   
+    border-radius: 6px;
+  }
+}
+
+.error-message{
+  margin:10px;
+  color:red;
+}
+
+@media(max-width:768px){
+  .logo{
+    width: 80%;
+  }
+
+}
+
+
+/* 
+.rowradius{
+  border-radius: 5px;
+} */
+
+
+
+
+
+/* .gradient-custom-2 {
+ 
+    background: #fccb90;
+  
+   
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  
+  
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  }
+  
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh !important;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+  }
+  
+  .logo-img {
+    width: 185px;
+  }
+  
+  .form-notch .form-notch-leading {
+    width: 9px;
+  }
+  
+  .form-notch .form-notch-middle {
+    width: 66.4px;
+  }
+  
+  .form-notch-password .form-notch-middle {
+    width: 64.8px;
+  }
+  
+  .password-input {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 16px 18px;
+    background-position: 98% 50%;
+    cursor: pointer;
+  }
+   */

@@ -1,0 +1,36 @@
+.input-style-1{
+    width: 408px;;
+}
+
+.signup{
+    background: linear-gradient(to left, #ee7724, #d8363a, #dd3675, #b44593);
+}  
+
+.input-style{
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-signup{
+    margin-top: 23%;
+}
+
+.text-side{
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    border-radius: 0 10px 10px 0; 
+}
+
+.head-sec{
+    background-color: #eee; 
+    
+}
+
+
+@media (max-width:768px){
+    .input-style{
+        width: 200px;
+    }
+    .logo-signup{
+        width: 80%;
+    }
+}

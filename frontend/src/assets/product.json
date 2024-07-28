@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "amt": 100.50,
+    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "amt": 250.00,
+    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"  },
+  {
+    "id": 3,
+    "name": "Alice Johnson",
+    "amt": 300.75,
+    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"  },
+  {
+    "id": 4,
+    "name": "Bob Brown",
+    "amt": 175.25,
+    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Charlie Davis",
+    "amt": 90.00,
+    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"  }
+]

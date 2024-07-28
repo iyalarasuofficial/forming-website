@@ -1,0 +1,80 @@
+
+
+.curosil-image{
+    height: 80vh;
+    width:100%;
+   
+}
+.carousel-indicators [data-bs-target]{
+    border-radius: 100%;
+    width:10px !important;
+    height:10px !important;
+}
+
+.curosil-style{
+    position: relative;
+    width:100%; 
+}
+
+.card-style{
+    position:absolute;
+    background: #58b3d3;
+    top: 87%;
+    left: 11%;
+    width: 80%;
+    
+    height: 70%;
+    z-index: 1;
+    border: 8px solid #e7eaf6;
+}
+
+.card-inner-text{
+    margin: 20%;
+}
+
+.card-inner-text .button-style{
+    background-color:yellow;
+    width: 38px;
+    height: 37px;
+    border-radius: 18px;
+}
+.card-inner-text .button-style:hover{
+    background-color: greenyellow;
+}
+
+.curosil-style .image{
+    width: 100%;
+}
+
+@media (max-width:768px){
+    .card-style{
+        top: 87%;
+    }
+
+}
+.small-card-section{
+    margin-top: 34%;
+}
+.small-cards{
+    margin-top: 4%;
+    width: 76% !important;
+}
+
+@media (max-width:767px){
+    .small-card-section {
+        margin-top: 130%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .small-card-section {
+        margin-top: 107%;
+    }
+
+}
+
+
+.card-component{
+    margin-bottom: 10px;
+
+}
