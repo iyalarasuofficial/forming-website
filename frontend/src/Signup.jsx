@@ -36,9 +36,9 @@ function Signup() {
                 setSuccessMessage('Signup successful!');
                 setTimeout(() => {
                     setSuccessMessage('');
+                    setFormState({ firstName: '', lastName: '', email: '', password: '' });
+                    Navigate("/login");
                 }, 3000);
-                setFormState({ firstName: '', lastName: '', email: '', password: '' });
-                Navigate("/login");
             })
             .catch(err => {
                 console.log(err);
