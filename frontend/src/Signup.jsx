@@ -31,7 +31,7 @@ function Signup() {
             return setErrorMessage('Please enter a valid email address.');
         if (!passwordValidator(formState.password))
             return setErrorMessage('The password should contain a minimum of 8 characters, and at least one uppercase, one lowercase, one numeric, and one special character.');
-        axios.post(`http://localhost:8081/signup`, formState)
+        axios.post(`https://forming-website-backend.onrender.com/signup`, formState)
             .then(res => {
                 setSuccessMessage('Signup successful!');
                 setTimeout(() => {
