@@ -4,10 +4,12 @@ import {Footer} from "./Footer";
 import img1 from "../src/components/aboutimages/img1.jpg";
 import img2 from "../src/components/aboutimages/img2.jpg";
 import img3 from "../src/components/aboutimages/img3.jpg";
+import Menu from "./Menu";
 
 export const About = () => {
   return (
     <div>
+       <Menu  />
       <div className="about-section">
         <h1>About Us </h1>
      

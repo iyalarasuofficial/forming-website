@@ -16,18 +16,34 @@ const dbConfig = {
 // Establish a connection pool
 const pool = mysql.createPool(dbConfig);
 
-app.get('/', (req, res) => {
-    res.send("okkkkk");
-});
-
-async function getContacts() {
-    const [rows] = await pool.query("SELECT * FROM contact");
+// Function to get data from a specific table
+async function getData(table) {
+    const [rows] = await pool.query(`SELECT * FROM ${table}`);
     return rows;
 }
 
-app.get('/get/contact', async (req, res) => {
+// Function to insert data into a specific table
+async function insertData(table, columns, values) {
+    const sql = `INSERT INTO ${table} (${columns.join(', ')}) VALUES (?, ?, ?, ?)`;
+    const [result] = await pool.query(sql, values);
+    
+    return result;
+}
+
+app.get('/contact', async (req, res) => {
     try {
-        const result = await getContacts();
+        const result = await getData('contact');
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+
+app.get('/signup', async (req, res) => {
+    try {
+        const result = await getData('signup');
         res.json(result);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -35,17 +51,47 @@ app.get('/get/contact', async (req, res) => {
 });
 
 app.post('/contact', async (req, res) => {
-    const sql = "INSERT INTO contact (`firstname`, `lastname`, `email`, `phone`) VALUES (?, ?, ?, ?)";
     const values = [
         req.body.firstName,
         req.body.lastName,
         req.body.email,
-        req.body.phone
+        req.body.phone,
     ];
 
     try {
-        const [result] = await pool.query(sql, values);
+        const result = await insertData('contact', ['firstname', 'lastname', 'email', 'phone'], values);
         res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.post('/signup', async (req, res) => {
+    const values = [
+        req.body.firstName,
+        req.body.lastName,
+        req.body.email,
+        req.body.password,
+    ];
+
+    try {
+        const result = await insertData('signup', ['firstname', 'lastname', 'email', 'password'], values);
+        res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+app.post('/login', async (req, res) => {
+    const sql = "SELECT * FROM signup WHERE email = ? AND password = ?";
+    const values = [req.body.email, req.body.password];
+
+    try {
+        const [rows] = await pool.query(sql, values);
+        if (rows.length > 0) {
+            res.json(rows);
+        } else {
+            res.status(401).json({ error: 'Invalid email or password' });
+        }
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

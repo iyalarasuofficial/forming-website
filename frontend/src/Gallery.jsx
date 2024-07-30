@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import "./gallery.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
-import {Footer} from "./Footer";
+import { Footer } from "./Footer";
+import Menu from "./Menu";
+
+
 
 const images = [
     "https://media.istockphoto.com/id/1248963859/photo/pig-farms-in-confinement-mode.jpg?s=612x612&w=0&k=20&c=WvY9pkZW75vzmevYzXxTSKo9oe1I5KjL4v1djBXtbUg=",
@@ -35,37 +38,41 @@ const Gallery = () => {
         }
     }
 
-    return (<>
-    <div className="about-section" style={{}}>
-        <h1>Gallery</h1>
-      </div>
-        {data.img &&
-            <div className='view-image-container' >
-                <button className='xmark' onClick={() => imgAction('')}><FontAwesomeIcon icon={faXmark} /></button>
-                <button onClick={() => imgAction('prev-img')}><FontAwesomeIcon icon={faChevronLeft} />prev</button>
-                <img src={data.img} />
-                <button onClick={() => imgAction('next-img')}><FontAwesomeIcon icon={faChevronRight} />next</button>
+    return (
+        <>
+            <Menu />
 
+            <div className="about-section" style={{}}>
+
+                <h1>Gallery</h1>
             </div>
-        }
-        <div>
-            <div className='gallery-container'>
+            {data.img &&
+                <div className='view-image-container' >
+                    <button className='xmark' onClick={() => imgAction('')}><FontAwesomeIcon icon={faXmark} /></button>
+                    <button onClick={() => imgAction('prev-img')}><FontAwesomeIcon icon={faChevronLeft} />prev</button>
+                    <img src={data.img} />
+                    <button onClick={() => imgAction('next-img')}><FontAwesomeIcon icon={faChevronRight} />next</button>
 
-                {images.map((image, i) => (
-                    <img className='inner-image-style'
-                    style={{cursor:"pointer"}}
-                        key={i}
-                        src={image}
-                        // style={{ width: "100%", display: "block", cursor: 'pointer' }}
-                        alt=""
-                        onClick={() => viewImage(image, i)}
-                    />
-                ))}
+                </div>
+            }
+            <div>
+                <div className='gallery-container'>
+                    
+                    {images.map((image, i) => (
+                        <img className='inner-image-style'
+                            style={{ cursor: "pointer" }}
+                            key={i}
+                            src={image}
+                            // style={{ width: "100%", display: "block", cursor: 'pointer' }}
+                            alt=""
+                            onClick={() => viewImage(image, i)}
+                        />
+                    ))}
 
+                </div>
             </div>
-        </div>
-        <Footer/>
-    </>
+            <Footer />
+        </>
     )
 }
 

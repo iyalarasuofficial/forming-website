@@ -2,21 +2,24 @@ import React, { useState } from "react";
 import "./login.css";
 import logo from "./logo.png";
 import { emailValidator, passwordValidator } from "./components/regexValidator";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 function Login() {
-    const Navigate=useNavigate()
+    const Navigate = useNavigate()
 
-    const [input, setInput] = useState({ email: '' , password: '' })
+    const [input, setInput] = useState({
+        email: '',
+        password: ''
+    })
     const [errorMessage, setErrorMessage] = useState('')
     const [successMessage, setSuccessMessage] = useState('')
-    const [check, setCheck]=useState([{'username':'admin@gmail.com','password':'admin@123'}])
-
 
     const handleChange = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
- 
+
 
 
     const onSubmitter = (e) => {
@@ -25,21 +28,15 @@ function Login() {
         setErrorMessage('');
         if (!emailValidator(input.email))
             return setErrorMessage('Please enter valid email id ');
-        // if (!(input.password))
-        //     return setErrorMessage('The password should contain minmum 8 character andd atlest one uppercase ,one lowercase,one numberic and one special characters');
-        let tempCheck=[...check]
-        tempCheck=tempCheck.filter((value,index)=>{
-            return value['username']===input.email && value['password']===input.password
+        axios.post(`http://localhost:8081/login`, input)
+        .then(res=>{
+            setTimeout(()=>{
+                setSuccessMessage('Account Created');
+            },5000)
+            Navigate("/");           
+           
         })
-        if(tempCheck.length>0){
-            console.log(tempCheck.length)
-            Navigate("/")
-            setSuccessMessage('Successfullly Logined');
-
-        }
-        else{
-            alert("invalid");
-        }
+        .catch(err => setErrorMessage("Incorrect username or password"));     
 
     }
 
@@ -67,7 +64,7 @@ function Login() {
                                 <p className="p-4" ><a className="text-muted " href="#!">Forgot password?</a></p>
                                 <div className="d-flex justify-content-center align-items-center">
                                     <p className="p-2 mt-3"> Don't Have account?</p>
-                                    <button className="btn btn-outline-danger "onClick={(e)=> Navigate("/signup")} >Create New</button>
+                                    <button className="btn btn-outline-danger " onClick={(e) => Navigate("/signup")} >Create New</button>
                                 </div>
 
 

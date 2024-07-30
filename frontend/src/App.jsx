@@ -1,6 +1,6 @@
 import { createContext,  useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Menu from './Menu';
+
 import Homepage from './Homepage';
 import Login from './Login';
 import Signup from './Signup';
@@ -11,6 +11,7 @@ import Gallery from './Gallery';
 import { About } from './About';
 import {Footer} from "./Footer";
 import { Contact } from './Contact';
+import Menu from "./Menu";
 
 
 export const cartContext=createContext();
@@ -23,9 +24,9 @@ function App() {
 
     <cartContext.Provider value={{cart,setCart}}>
       <BrowserRouter>
-      {['/', '/shop', '/cart','/gallery','/about','/contact'].includes(window.location.pathname) && (
-          <Menu cart={cart}  />
-        )}
+      {/* {['/', '/shop', '/cart','/gallery','/about','/contact'].includes(window.location.pathname) && (
+          
+        )} */}
 
         <Routes>
           <Route exact path="/" element={<Homepage />} />
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/gallery" element={<Gallery />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/menu" element={<Menu   />}/>
           
         </Routes>
       

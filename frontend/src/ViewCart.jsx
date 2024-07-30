@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './cart.css';
 import { cartContext } from './App';
+import Menu from "./Menu";
 
 
 
@@ -18,7 +19,7 @@ const ViewCart = () => {
   };
 
   return (
-    <>
+    <> <Menu  />
 
       <h1 className='cart-heading'>Cart Products</h1>
       <div className='cart-container'>

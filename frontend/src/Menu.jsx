@@ -5,13 +5,18 @@ import { faCartShopping, faMagnifyingGlass, faBars, faXmark } from '@fortawesome
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png";
 import "./menu.css";
+import { useContext } from 'react';
+import { cartContext } from './App';
 
 
-const Menu = ({ cart }) => {
-    console.log(cart)
+const Menu = () => {
+ const {cart,setCart}=useContext(cartContext);
+
+
     return (
         <div class="transparent-hide">
             <nav>
+               
                 <img src={logo} />
                 <input type='checkbox' id='check' />
                 <label for="check">
