@@ -21,7 +21,7 @@ export const Contact = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:8081/contact`, formState)
+        axios.post(`https://forming-website-backend.onrender.com/contact`, formState)
             .then(res => {
                 console.log("Registered successfully")
                 setFormState({ firstName: '', lastName: '', email: '', phone: '', });
