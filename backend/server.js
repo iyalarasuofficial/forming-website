@@ -26,7 +26,7 @@ async function getData(table) {
 async function insertData(table, columns, values) {
     const sql = `INSERT INTO ${table} (${columns.join(', ')}) VALUES (?, ?, ?, ?)`;
     const [result] = await pool.query(sql, values);
-    
+
     return result;
 }
 
@@ -73,13 +73,27 @@ app.post('/signup', async (req, res) => {
         req.body.email,
         req.body.password,
     ];
-
+    const sqle = "SELECT * From signup WHERE email =? ";
+    const emailVlaue = req.body.email;
     try {
-        const result = await insertData('signup', ['firstname', 'lastname', 'email', 'password'], values);
-        res.json(result);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
+        const [row] = await pool.query(sqle, emailVlaue);
+        if (!(row.length > 0)) {
+            // res.json(row);
+            try {
+                const result = await insertData('signup', ['firstname', 'lastname', 'email', 'password'], values);
+                res.json(result);
+            } catch (err) {
+                res.status(500).json({ error: err.message });
+            }
+        } else {
+            res.status(409).json({ error: 'email already exists' })
+        }
     }
+    catch (err) {
+        res.status(500).json({ error: message });
+    }
+
+
 });
 app.post('/login', async (req, res) => {
     const sql = "SELECT * FROM signup WHERE email = ? AND password = ?";

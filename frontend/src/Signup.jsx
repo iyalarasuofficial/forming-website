@@ -4,6 +4,7 @@ import logo from './logo.png';
 import { emailValidator, passwordValidator } from "./components/regexValidator";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 function Signup() {
@@ -14,7 +15,7 @@ function Signup() {
         email: '',
         password: '',
     });
-
+      const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
 
@@ -31,29 +32,41 @@ function Signup() {
             return setErrorMessage('Please enter a valid email address.');
         if (!passwordValidator(formState.password))
             return setErrorMessage('The password should contain a minimum of 8 characters, and at least one uppercase, one lowercase, one numeric, and one special character.');
-        axios.post(`https://forming-website-backend.onrender.com/signup`, formState)
+        setLoading(true);
+        axios.post(`http://localhost:8081/signup`, formState)
             .then(res => {
                 setSuccessMessage('Signup successful!');
                 setTimeout(() => {
-                    setSuccessMessage('');
-                    setFormState({ firstName: '', lastName: '', email: '', password: '' });
+                    setLoading(false);
                     Navigate("/login");
-                }, 3000);
+                    setFormState({ firstName: '', lastName: '', email: '', password: '' });
+
+                }, 1500);
             })
             .catch(err => {
+                setLoading(false);
                 console.log(err);
+                if(err.response && err.response.status===409){
+                    setErrorMessage('Email already exists')
+                }else{
                 setErrorMessage('An error occurred during signup. Please try again.');
+                }   
             });
     };
 
     return (
-        <section className="p-4 head-sec">
+        <>
+        {loading?(<div>
+            <div className="loader-container" style={{ marginTop: "20%" }}>
+                    <ClipLoader color={"orange"} size={150} />
+                </div>
+        </div>):( <section className="p-4 head-sec">
             <div className="card rounded-3">
                 <div className="row">
                     <div className="col-12 col-md-6 mb-5">
-                        <img src={logo} className="logo-signup" alt="logo" />
+                        <img src={logo} className="logo-signup " alt="logo" />
                         <p className="fw-bold fs-4">We Are The Team</p>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit}  className="signup-form">
                             <input
                                 type="text"
                                 className="input-style mt-3 mx-3"
@@ -61,6 +74,7 @@ function Signup() {
                                 name="firstName"
                                 value={formState.firstName}
                                 onChange={handleChange}
+                                required
                             />
                             <input
                                 type="text"
@@ -69,6 +83,7 @@ function Signup() {
                                 name="lastName"
                                 value={formState.lastName}
                                 onChange={handleChange}
+                                required
                             />
                             <br />
                             <input
@@ -78,6 +93,7 @@ function Signup() {
                                 name="email"
                                 value={formState.email}
                                 onChange={handleChange}
+                                required
                             />
                             <br />
                             <input
@@ -87,17 +103,18 @@ function Signup() {
                                 name="password"
                                 value={formState.password}
                                 onChange={handleChange}
+                                required
                             />
                             <br />
                             <button className="input-style mt-3 btn btn-primary signup input-style-1" type="submit">
                                 Signup
                             </button>
-                            {errorMessage && <p className="text-danger mt-3">{errorMessage}</p>}
+                            {errorMessage && <p className="text-danger tex mt-3">{errorMessage}</p>}
                             {successMessage && <p className="text-success mt-3">{successMessage}</p>}
                             <br />
                             <div>
                                 <p className="mt-3">or signup with </p>
-                                {/* Add FontAwesome Icons here */}
+                              
                             </div>
                             <br />
                         </form>
@@ -110,7 +127,9 @@ function Signup() {
                     </div>
                 </div>
             </div>
-        </section>
+        </section>)}
+        </>
+       
     );
 }
 

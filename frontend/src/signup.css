@@ -24,6 +24,9 @@
     background-color: #eee; 
     
 }
+.signup-form{
+    padding: 40px;
+}
 
 
 @media (max-width:768px){
@@ -33,4 +36,8 @@
     .logo-signup{
         width: 80%;
     }
+}
+
+span{
+    border-width: 50px;
 }

@@ -1,6 +1,6 @@
 import { createContext,  useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import React from 'react';
 import Homepage from './Homepage';
 import Login from './Login';
 import Signup from './Signup';
@@ -9,7 +9,7 @@ import  ViewCart from './ViewCart';
 import "./App.css";
 import Gallery from './Gallery';
 import { About } from './About';
-import {Footer} from "./Footer";
+
 import { Contact } from './Contact';
 import Menu from "./Menu";
 
