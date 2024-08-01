@@ -13,7 +13,8 @@ const dbConfig = {
     database: 'contact'
 };
 
-// Establish a connection pool
+
+
 const pool = mysql.createPool(dbConfig);
 
 // Function to get data from a specific table
