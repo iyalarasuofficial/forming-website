@@ -28,7 +28,7 @@ function Login() {
             return setErrorMessage('Please enter valid email id');
         }
         setLoading(true);
-        axios.post(`https://forming-website-twwn.vercel.app/login`, input)
+        axios.post(`https://forming-website-oggy.vercel.app/login`, input)
             .then(res => {
                 setSuccessMessage('Account Created');
                 setTimeout(() => {

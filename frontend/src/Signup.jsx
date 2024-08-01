@@ -33,7 +33,7 @@ function Signup() {
         if (!passwordValidator(formState.password))
             return setErrorMessage('The password should contain a minimum of 8 characters, and at least one uppercase, one lowercase, one numeric, and one special character.');
         setLoading(true);
-        axios.post(`https://forming-website-twwn.vercel.app/signup`, formState)
+        axios.post(`https://forming-website-oggy.vercel.app/signup`, formState)
             .then(res => {
                 setSuccessMessage('Signup successful!');
                 setTimeout(() => {
