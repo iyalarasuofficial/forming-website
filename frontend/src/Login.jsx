@@ -57,7 +57,7 @@ function Login() {
                                 <p className="fw-bold fs-4">We Are The Team</p>
                                 <form onSubmit={onSubmitter}>
                                     <p>Please Login to your account</p>
-                                    <input placeholder="Username" className="input" type="text" name="email" onChange={handleChange} />
+                                    <input placeholder="Email" className="input" type="text" name="email" onChange={handleChange} />
                                     <br />
                                     <input placeholder="Password" className="input" type="password" name="password" onChange={handleChange} />
                                     <br />
