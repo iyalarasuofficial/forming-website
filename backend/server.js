@@ -32,7 +32,7 @@ async function insertData(table, columns, values) {
     return result;
 }
 
-app.get('/contact', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         const result = await getData('contact');
         res.json(result);
@@ -117,7 +117,7 @@ app.listen(8081, () => {
     console.log("Server listening on port 8081...");
 });
 
-app.get('/', (req, res) => {
-    res.send('This is your route');
-  });
-  
+// app.get('/', (req, res) => {
+//     res.send('This is your routes');
+//   });
+
