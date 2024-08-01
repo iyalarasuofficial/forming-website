@@ -47,7 +47,7 @@ export const About = () => {
           <div className="card about-card">
           <img src={img3 }alt="parthipan" />
             <div className="container">
-              <h2>John Doe</h2>
+              <h2>Parthipan</h2>
               <p className="title">Designer</p>
               <p>"Parthipan, as a Partner, brings a wealth of experience and dedication to our farming operations, collaborating closely to enhance productivity and sustainability.".</p>
               <p>parthipan@gmail.com</p>

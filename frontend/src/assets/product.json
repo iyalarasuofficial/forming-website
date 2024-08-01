@@ -1,29 +1,66 @@
 [
   {
     "id": 1,
-    "name": "John Doe",
-    "amt": 100.50,
-    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"
+    "name": "Tomoto 1kg",
+    "amt": 110,
+    "pic": "https://tiimg.tistatic.com/fp/1/004/053/organic-tomoto-715.jpg"
   },
   {
     "id": 2,
-    "name": "Jane Smith",
+    "name": "Maravalli 1kg",
     "amt": 250.00,
-    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"  },
+    "pic": "https://img2.exportersindia.com/product_images/bc-full/2019/7/6510124/1564488015_p_5023209_970301.jpeg"  },
   {
     "id": 3,
-    "name": "Alice Johnson",
-    "amt": 300.75,
-    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"  },
+    "name": "Makkasolam",
+    "amt": 30,
+    "pic": "https://static.langimg.com/photo/imgsize-264634,msid-80096090/tamil-samayam.jpg"  },
   {
     "id": 4,
-    "name": "Bob Brown",
-    "amt": 175.25,
-    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"
+    "name": " Goat",
+    "amt": 9000,
+    "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXI054CvVpDm63l3vPfQD_z7JBgauJH4B6GQ&s"
   },
   {
     "id": 5,
-    "name": "Charlie Davis",
-    "amt": 90.00,
-    "pic": "https://img.freepik.com/free-vector/cute-pig-cartoon-isolated_1308-141332.jpg"  }
+    "name": "Cow",
+    "amt": 25000,
+    "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOA-hVFbpBVOcih-8qYH_35ynFH54fGqRYQ&s"  },
+    {
+      "id": 6,
+      "name": "Pig",
+      "amt": 40000.00,
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-EhxQwNkyCapJwEn5oJq3hHw-pyobb28Dg&s"  },
+      {
+        "id": 7,
+        "name": "Ground nut 1kg",
+        "amt": 200.00,
+        "pic": "https://cdn.wikifarmer.com/wp-content/uploads/2023/07/Groundnut-Plant-Information-History-Uses-and-Nutrition-Value.jpg"  },
+        {
+          "id": 8,
+          "name": "lady's fingers 1kg",
+          "amt": 95.00,
+          "pic": "https://seed2plant.in/cdn/shop/products/ladiesfingerlocalseeds.jpg?v=1615875644"  },
+          {
+            "id": 9,
+            "name": "Onion 1kg",
+            "amt": 100.00,
+            "pic": "https://img.etimg.com/thumb/width-1200,height-900,imgsize-27092,resizemode-75,msid-102435400/industry/cons-products/food/after-tomato-onion-prices-inch-up-amid-lower-sowing.jpg"  },
+            {
+              "id": 10,
+              "name": "potato",
+              "amt": 87.00,
+              "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMLfmYU5zIhwdJZXuWd_fJ-BXXgJivs8wOhg&s"  },
+              {
+                "id": 11,
+                "name": "Cow Milk",
+                "amt": 70.00,
+                "pic": "https://isteam.wsimg.com/ip/a8efe83b-6857-477d-9d0f-f13ca0229a20/ols/2965_original/:/rs=w:600,h:600"  },
+                {
+                  "id": 12,
+                  "name": "Mango 1kg",
+                  "amt": 185.00,
+                  "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWuBU8Rgpi0afSxbokXwtHcsv1bzhw1b5SjA&s"  }
+          
+        
 ]

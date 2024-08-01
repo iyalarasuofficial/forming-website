@@ -33,7 +33,7 @@ function Login() {
                 setSuccessMessage('Account Created');
                 setTimeout(() => {
                     setLoading(false);
-                    navigate("/");
+                    navigate("/homepage");
                 }, 1500);
             })
             .catch(err => {
@@ -45,8 +45,8 @@ function Login() {
     return (
         <>
             {loading ? (
-                 <div className="loader-container" style={{ marginTop: "20%" }}>
-                    <ClipLoader color={"orange"}  size={150}  />
+                <div className="loader-container" style={{ marginTop: "20%" }}>
+                    <ClipLoader color={"orange"} size={150} />
                 </div>
             ) : (
                 <section className="p-4 text-center w-100 head-sec">
@@ -76,11 +76,10 @@ function Login() {
                             </div>
                             <div className="col-12 col-md-6 d-flex justify-content-center align-items-center text-background">
                                 <div>
-                                    <h4>We are more than just a company</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                        ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <h4>We are more than just a farm</h4>
+                                    <p>Our dedication to sustainable farming practices ensures the well-being of our pigs, cows, and goats. We strive to provide the best care and nutrition to our livestock, promoting healthy growth and productivity. Join us in our commitment to excellence in animal husbandry.</p>
                                 </div>
+
                             </div>
                         </div>
                     </div>

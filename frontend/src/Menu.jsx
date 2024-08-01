@@ -10,13 +10,13 @@ import { cartContext } from './App';
 
 
 const Menu = () => {
- const {cart,setCart}=useContext(cartContext);
+    const { cart, setCart } = useContext(cartContext);
 
 
     return (
         <div class="transparent-hide">
             <nav>
-               
+
                 <img src={logo} />
                 <input type='checkbox' id='check' />
                 <label for="check">
@@ -24,19 +24,23 @@ const Menu = () => {
                     <i><FontAwesomeIcon icon={faXmark} id='cancel' /></i>
                 </label>
                 <ul className="">
-                    <li> <Link to={'/'} className="link-style">Home</Link></li>
+                    <li> <Link to={'/homepage'} className="link-style">Home</Link></li>
                     <li>
-                    <Link to={'/about'} className="link-style">About us</Link></li>
+                        <Link to={'/about'} className="link-style">About us</Link></li>
                     <li>
-                    <Link to={'/gallery'} className="link-style">Gallery</Link></li>
+                        <Link to={'/gallery'} className="link-style">Gallery</Link></li>
                     <li>
                         <Link to={'/shop'} className="link-style">Shop</Link></li>
-                        <li>
+                    <li>
                         <Link to={'/contact'} className="link-style">Contact</Link></li>
                     <div className="button-sec">
                         <li className="button-style"><FontAwesomeIcon icon={faMagnifyingGlass} /></li>
                         <li className="button-style ms-4 link-style"><Link to={"/cart"} className="link-style"><span className='cart-count'>{cart.length}</span><FontAwesomeIcon icon={faCartShopping} /></Link></li>
                     </div>
+                    <li>
+                    <Link to={'/'} className="link-style">Login</Link></li>
+                    
+                    
 
                 </ul>
             </nav>

@@ -14,31 +14,32 @@ import Menu from "./Menu";
 function Homepage() {
     return (
         <div>
-            <Menu  />
-     
+            <Menu />
+
             <section className="curosil-style">
                 <Carousel className="image">
                     <Carousel.Item>
                         <img className="d-block curosil-image" src={image2} alt="First slide" />
                         <Carousel.Caption>
-                            <h3 className="cursor-text-animation" data-caption-animate="fadeInLeft" data-caption-delay="100">First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h3 className="cursor-text-animation" data-caption-animate="fadeInLeft" data-caption-delay="100">Healthy Piglets</h3>
+                            <p>Ensuring a nurturing environment for newborn piglets.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img className="d-block curosil-image" src={image1} alt="Second slide" />
                         <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h3>Advanced Pig Feed</h3>
+                            <p>Providing balanced nutrition for optimal growth.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img className="d-block w-100 curosil-image" src={image3} alt="Third slide" />
                         <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h3>Efficient Farming Techniques</h3>
+                            <p>Improving productivity with modern farming methods.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
+
                 </Carousel>
             </section>
             <section className="card-style d-flex align-items-center">
@@ -59,7 +60,7 @@ function Homepage() {
                 </div>
             </section>
             <Footer />
-        
+
         </div>
     );
 }

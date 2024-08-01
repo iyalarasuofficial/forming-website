@@ -7,6 +7,7 @@ import Menu from "./Menu";
 
 
 export const Contact = () => {
+
     const [formState, setFormState] = useState({
         firstName: '',
         lastName: '',
