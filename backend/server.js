@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 const dbConfig = {
-    host: process.env.DB_HOST || '127.0.0.1',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASS || 'admin123',
-    database: process.env.DB_NAME || 'contact'
+    host: '127.0.0.1',
+    user: 'root',
+    password: 'admin123',
+    database: 'contact'
 };
 
 // Establish a connection pool
@@ -38,6 +38,8 @@ app.get('/contact', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+
 
 app.get('/signup', async (req, res) => {
     try {
@@ -72,10 +74,11 @@ app.post('/signup', async (req, res) => {
         req.body.password,
     ];
     const sqle = "SELECT * From signup WHERE email =? ";
-    const emailValue = req.body.email;
+    const emailVlaue = req.body.email;
     try {
-        const [row] = await pool.query(sqle, emailValue);
+        const [row] = await pool.query(sqle, emailVlaue);
         if (!(row.length > 0)) {
+            // res.json(row);
             try {
                 const result = await insertData('signup', ['firstname', 'lastname', 'email', 'password'], values);
                 res.json(result);
@@ -89,8 +92,9 @@ app.post('/signup', async (req, res) => {
     catch (err) {
         res.status(500).json({ error: message });
     }
-});
 
+
+});
 app.post('/login', async (req, res) => {
     const sql = "SELECT * FROM signup WHERE email = ? AND password = ?";
     const values = [req.body.email, req.body.password];
@@ -113,4 +117,5 @@ app.listen(8081, () => {
 
 app.get('/', (req, res) => {
     res.send('This is your route');
-});
+  });
+  
