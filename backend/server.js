@@ -1,5 +1,6 @@
-const express = require('express');
+require('dotenv').config(); // Add this line to load environment variables
 
+const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
 
@@ -8,13 +9,11 @@ app.use(cors());
 app.use(express.json());
 
 const dbConfig = {
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'admin123',
-    database: 'contact'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
 };
-
-
 
 const pool = mysql.createPool(dbConfig);
 
@@ -28,11 +27,10 @@ async function getData(table) {
 async function insertData(table, columns, values) {
     const sql = `INSERT INTO ${table} (${columns.join(', ')}) VALUES (?, ?, ?, ?)`;
     const [result] = await pool.query(sql, values);
-
     return result;
 }
 
-app.get('/', async (req, res) => {
+app.get('/contact', async (req, res) => {
     try {
         const result = await getData('contact');
         res.json(result);
@@ -40,8 +38,6 @@ app.get('/', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
-
-
 
 app.get('/signup', async (req, res) => {
     try {
@@ -75,12 +71,11 @@ app.post('/signup', async (req, res) => {
         req.body.email,
         req.body.password,
     ];
-    const sqle = "SELECT * From signup WHERE email =? ";
-    const emailVlaue = req.body.email;
+    const sql = "SELECT * FROM signup WHERE email = ?";
+    const emailValue = req.body.email;
     try {
-        const [row] = await pool.query(sqle, emailVlaue);
-        if (!(row.length > 0)) {
-            // res.json(row);
+        const [row] = await pool.query(sql, [emailValue]);
+        if (row.length === 0) {
             try {
                 const result = await insertData('signup', ['firstname', 'lastname', 'email', 'password'], values);
                 res.json(result);
@@ -88,15 +83,13 @@ app.post('/signup', async (req, res) => {
                 res.status(500).json({ error: err.message });
             }
         } else {
-            res.status(409).json({ error: 'email already exists' })
+            res.status(409).json({ error: 'Email already exists' });
         }
+    } catch (err) {
+        res.status(500).json({ error: err.message });
     }
-    catch (err) {
-        res.status(500).json({ error: message });
-    }
-
-
 });
+
 app.post('/login', async (req, res) => {
     const sql = "SELECT * FROM signup WHERE email = ? AND password = ?";
     const values = [req.body.email, req.body.password];
@@ -113,11 +106,10 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.listen(8081, () => {
-    console.log("Server listening on port 8081...");
+app.listen(process.env.PORT, () => {
+    console.log(`Server listening on port ${process.env.PORT}...`);
 });
 
-// app.get('/', (req, res) => {
-//     res.send('This is your routes');
-//   });
-
+app.get('/', (req, res) => {
+    res.send('This is your route');
+});
