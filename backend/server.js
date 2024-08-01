@@ -114,3 +114,8 @@ app.post('/login', async (req, res) => {
 app.listen(8081, () => {
     console.log("Server listening on port 8081...");
 });
+
+app.get('/', (req, res) => {
+    res.send('This is your route');
+  });
+  
