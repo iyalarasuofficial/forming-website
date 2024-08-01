@@ -21,7 +21,7 @@ export const Contact = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`https://forming-website-twwn.vercel.app/contact`, formState)
+        axios.post(`https://forming-website-oggy.vercel.app/contact`, formState)
             .then(res => {
                 console.log("Registered successfully")
                 setFormState({ firstName: '', lastName: '', email: '', phone: '', });
